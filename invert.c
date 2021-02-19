@@ -2,6 +2,7 @@
   * 
   * invert（x,p,n）x中第p位开始的n个位取反
   * rightrot(x,n)返回x最右端移出最左端移入n位的值
+  * 重写bitcount（）统计为1的位
   */
  
 
@@ -10,12 +11,13 @@
 unsigned invert(unsigned x,int p,int n);
 unsigned rightrot(unsigned x, int n);
 int wordlength();
+int bitcount(unsigned x);
 int main(){
     unsigned x = 0b11111111;
     int p = 6;
     int n = 3;
    // unsigned an = invert(x,p,n);
-    printf("%x\n",rightrot(x,n));
+    printf("%d\n",bitcount(x));
 //    printf("%d\n",(wordlength()-1));
 }
 unsigned invert(unsigned x, int p, int n){
@@ -45,4 +47,14 @@ int wordlength(){
 //     }
 //     return i;
     
+}
+int bitcount(unsigned x){
+    int i = 0;
+//     while(x){
+//         x&=(x-1);
+//         i++;
+// 
+//     }
+    for(i;x;x&=(x-1))i++;
+    return i;
 }
